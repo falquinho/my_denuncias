@@ -1,14 +1,22 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Denúncias Registradas
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+  <!-- Floating Action Button para adicionar nova denuncia -->
+  <ion-fab bottom right>
+    <button ion-fab><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+  <!-- se requisiçao ao Web Service ainda nao terminou, mostra lista de carregamento -->
+  <ion-list *ngIf="true">
+    <ion-item *ngFor="let x of [1, 2 ,3 ,4, 5, 6]">
+      <loading-denuncia></loading-denuncia>
+    </ion-item>
+  </ion-list>
+
 </ion-content>
