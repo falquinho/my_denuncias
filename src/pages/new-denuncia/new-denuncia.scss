@@ -1,7 +1,7 @@
 page-new-denuncia {
-    .take-photo-btn {
-        width:  50vw;
-        height: 50vw!important;
+    .take-photo-btn, .taken-photo {
+        width:  70vw;
+        height: 70vw!important;
         border-radius: 50%;
         margin: 2rem;
     }
@@ -16,4 +16,5 @@ page-new-denuncia {
         width: 60vw;
         left:  20vw;
     }
+
 }

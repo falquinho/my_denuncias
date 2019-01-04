@@ -1,5 +1,7 @@
 {
   "name": "Denuncias",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

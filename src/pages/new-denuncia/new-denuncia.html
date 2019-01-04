@@ -28,10 +28,16 @@
       <ion-input type="email" required readonly value="lucas.falcao.nb@gmail.com"></ion-input>
     </ion-item>
 
-    <ion-item text-center>
+    <!-- se nenhuma foto foi capturada mostra botao de capturar foto -->
+    <ion-item text-center *ngIf="!base64img">
       <button ion-button icon-only color="light" class="take-photo-btn" (click)="cameraBtnClicked()">
         <ion-icon name="camera"></ion-icon>
       </button>
+    </ion-item>
+
+    <!-- se uma foto ja foi capturada mostra e a usa como botao para re-capturar -->
+    <ion-item text-center *ngIf="base64img">
+      <img class="taken-photo" [src]="base64img" alt="Foto capturada."/>
     </ion-item>
 
     <button ion-button large icon-start round class="submit-btn" (click)="submitBtnClicked()">
