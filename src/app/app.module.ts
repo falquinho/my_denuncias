@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -9,6 +10,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ComponentsModule } from '../components/components.module';
 import { NewDenunciaPageModule } from '../pages/new-denuncia/new-denuncia.module';
+import { DenunciasApiProvider } from '../providers/denuncias-api/denuncias-api';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { NewDenunciaPageModule } from '../pages/new-denuncia/new-denuncia.module
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    HttpClientModule,
+    IonicModule.forRoot(MyApp, { statusbarPadding: true }),
     ComponentsModule,
     NewDenunciaPageModule
   ],
@@ -30,7 +33,8 @@ import { NewDenunciaPageModule } from '../pages/new-denuncia/new-denuncia.module
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Camera
+    Camera,
+    DenunciasApiProvider
   ]
 })
 export class AppModule {}

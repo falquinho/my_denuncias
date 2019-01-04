@@ -16,13 +16,15 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 })
 export class NewDenunciaPage {
 
-  base64img: string = undefined;
+  base64img:     string = undefined;
+  select_motivo: string = "motivo_roubo";
+  user_email:    string = "lucas.falcao.nb@gmail.com";
 
   
   constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams, 
-    private camera: Camera,
+    public  navCtrl:   NavController, 
+    public  navParams: NavParams, 
+    private camera:    Camera,
     private toastCtrl: ToastController
   ) {}
     
@@ -33,7 +35,17 @@ export class NewDenunciaPage {
   
   
   submitBtnClicked() {
-    //
+
+    if( !this.base64img ) {
+      this.toastCtrl.create({
+        message: "Por favor capture uma foto.",
+        duration: 3000
+      }).present();
+
+      return;
+    }
+
+    // envia dados para serviço web
   }
   
   

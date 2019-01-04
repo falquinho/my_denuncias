@@ -19,4 +19,16 @@ page-new-denuncia {
         height: 100%;
     }
 
+    input.text-input {
+        padding: 1rem 2rem;
+        background-color: whitesmoke;
+        border-radius: 2rem;
+    }
+
+    // remove estilo padrao do indicador de validação ja que nao faz sentido no design
+    .ng-valid .item-inner, .ng-invalid .item-inner {
+        border-bottom: none!important;
+        box-shadow:    none!important;
+    }
+
 }
