@@ -9,7 +9,9 @@
 <ion-content>
   <!-- Floating Action Button para adicionar nova denuncia -->
   <ion-fab bottom right>
-    <button ion-fab><ion-icon name="add"></ion-icon></button>
+    <button ion-fab (click)="fabClicked()">
+      <ion-icon name="add"></ion-icon>
+    </button>
   </ion-fab>
 
   <!-- se requisiçao ao Web Service ainda nao terminou, mostra lista de carregamento -->

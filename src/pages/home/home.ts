@@ -14,4 +14,8 @@ export class HomePage {
     
   }
 
+  fabClicked() {
+    this.navCtrl.push("NewDenunciaPage");
+  }
+
 }
