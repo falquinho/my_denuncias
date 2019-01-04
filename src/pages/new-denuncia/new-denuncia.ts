@@ -40,11 +40,12 @@ export class NewDenunciaPage {
   cameraBtnClicked() {
 
     const cam_config: CameraOptions = {
+      correctOrientation: true,
       encodingType:    this.camera.EncodingType.JPEG,
       mediaType:       this.camera.MediaType.PICTURE,
       destinationType: this.camera.DestinationType.DATA_URL, // DATA_URL == foto codificada base64
       targetHeight:    1280, // nao ha necessidade da imagem em resoluçao maxima 
-      targetWidth:     1280, // imagem 1:1 ja que vai ser contida em um circulo
+      targetWidth:     1280, // obrigatorio definir o outro se um for definido
       quality:         90
     }
 

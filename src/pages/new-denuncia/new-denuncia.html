@@ -37,10 +37,11 @@
 
     <!-- se uma foto ja foi capturada mostra e a usa como botao para re-capturar -->
     <ion-item text-center *ngIf="base64img">
-      <img class="taken-photo" [src]="base64img" alt="Foto capturada."/>
+      <button class="img-btn" (click)="cameraBtnClicked()" [ngStyle]="{'background-image': 'url(' + base64img + ')'}">
+      </button>
     </ion-item>
 
-    <button ion-button large icon-start round class="submit-btn" (click)="submitBtnClicked()">
+    <button ion-button large icon-start round block (click)="submitBtnClicked()">
       <ion-icon name="cloud-upload"></ion-icon>
       Registrar
     </button>

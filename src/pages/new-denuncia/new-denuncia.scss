@@ -1,20 +1,22 @@
 page-new-denuncia {
-    .take-photo-btn, .taken-photo {
+    .take-photo-btn, .img-btn {
         width:  70vw;
         height: 70vw!important;
         border-radius: 50%;
         margin: 2rem;
+        font-size: 4rem!important;
     }
 
-    .take-photo-btn ion-icon {
-        font-size: 6em;
+    .img-btn {
+        background-color: gainsboro;
+        overflow: hidden;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+        background-position: center;
+        background-size: cover;
     }
 
-    .submit-btn {
-        position: fixed;
-        bottom: 1rem;
-        width: 60vw;
-        left:  20vw;
+    .taken-img {
+        height: 100%;
     }
 
 }
