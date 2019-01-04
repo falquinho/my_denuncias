@@ -17,7 +17,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 export class NewDenunciaPage {
 
   base64img:     string = undefined;
-  select_motivo: string = "motivo_roubo";
+  select_motivo: string = "ROUBO";
   user_email:    string = "lucas.falcao.nb@gmail.com";
 
   
