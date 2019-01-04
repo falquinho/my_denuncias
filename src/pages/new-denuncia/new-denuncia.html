@@ -7,12 +7,36 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>new-denuncia</ion-title>
+    <ion-title>Nova Denúncia</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <form>
+    <ion-item>
+      <ion-label stacked>Motivo</ion-label>
+      <ion-select>
+        <ion-option value="motivo_roubo" selected>Roubo</ion-option>
+        <ion-option value="motivo_furto"         >Furto</ion-option>
+      </ion-select>
+    </ion-item>
 
+    <ion-item>
+      <ion-label stacked>Seu E-mail</ion-label>
+      <ion-input type="email" required readonly value="lucas.falcao.nb@gmail.com"></ion-input>
+    </ion-item>
+
+    <ion-item text-center>
+      <button ion-button icon-only color="light" class="take-photo-btn" (click)="cameraBtnClicked()">
+        <ion-icon name="camera"></ion-icon>
+      </button>
+    </ion-item>
+
+    <button ion-button large icon-start round class="submit-btn" (click)="submitBtnClicked()">
+      <ion-icon name="cloud-upload"></ion-icon>
+      Registrar
+    </button>
+  </form>
 </ion-content>

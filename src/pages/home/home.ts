@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { NewDenunciaPage } from '../new-denuncia/new-denuncia';
 
 @Component({
   selector: 'page-home',
@@ -15,7 +16,7 @@ export class HomePage {
   }
 
   fabClicked() {
-    this.navCtrl.push("NewDenunciaPage");
+    this.navCtrl.push(NewDenunciaPage);
   }
 
 }

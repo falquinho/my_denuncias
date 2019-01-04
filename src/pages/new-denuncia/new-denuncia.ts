@@ -18,8 +18,19 @@ export class NewDenunciaPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad NewDenunciaPage');
+  }
+
+
+  submitBtnClicked() {
+    //
+  }
+
+  
+  cameraBtnClicked() {
+    //
   }
 
 }
