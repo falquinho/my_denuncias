@@ -1,5 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Denuncia }   from '../../custom_types/denuncia';
+import { Observable } from 'rxjs/Observable';
 
 /*
   Generated class for the DenunciasApiProvider provider.
@@ -19,12 +21,13 @@ export class DenunciasApiProvider {
   }
 
 
-  getDenuncias() {
-    //
+  getDenuncias () {
+    // configuro para receber resposta completa - observe: response - pois vou usar codigos http
+    return this.http.get<Denuncia[]>( this.get_addr, { observe: 'response' });
   }
 
 
-  postDenuncia( denuncia: Object ) {
+  postDenuncia( denuncia: Denuncia ) {
     //
   }
 

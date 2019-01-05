@@ -15,9 +15,42 @@
   </ion-fab>
 
   <!-- se requisiçao ao Web Service ainda nao terminou, mostra lista de carregamento -->
-  <ion-list *ngIf="true">
+  <ion-list *ngIf="!http_code">
     <ion-item *ngFor="let x of [1, 2 ,3 ,4, 5, 6]">
       <loading-denuncia></loading-denuncia>
+    </ion-item>
+  </ion-list>
+
+  <!-- se a requisiçao terminou mas retornou codigo de erro -->
+  <ion-grid *ngIf="http_code && http_code != 200">
+    <ion-row class="msg-row">
+      <ion-col text-center> 
+        <ion-icon class="big-icon" name="wifi"></ion-icon>
+        <h2>Erro de conexão.</h2>
+        <button ion-button clear small icon-start (click)="getDenunciasFromApi()">
+          <ion-icon name="refresh"></ion-icon>Tentar novamente
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- requisição retornou com sucesso mas array nao tem elemento -->
+  <ion-grid *ngIf="http_code == 200 && !denuncias.length">
+    <ion-row class="msg-row">
+      <ion-col text-center>
+        <ion-icon class="big-icon" name="information-circle"></ion-icon>
+        <h2>Nenhuma denúncia registrada.</h2>
+        <p>
+          Toque no botão <ion-icon name="add-circle"></ion-icon> para registrar uma denúncia.
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- requisiçao retornou com sucesso e array tem elemento -->
+  <ion-list *ngIf="http_code == 200 && denuncias.length">
+    <ion-item *ngFor="let denuncia of denuncias">
+      <!-- componente aqui -->
     </ion-item>
   </ion-list>
 
