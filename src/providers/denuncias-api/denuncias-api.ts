@@ -13,6 +13,7 @@ import { Observable } from 'rxjs/Observable';
 export class DenunciasApiProvider {
 
   private get_addr : string = "http://apitesteionic.godocs.com.br/api/ocorrencias/lucas.falcao.nb@gmail.com";
+  // private get_addr : string = "http://apitesteionic.godocs.com.br/api/ocorrencias/dariobennaia@gmail.com/";
   private post_addr: string = "http://apitesteionic.godocs.com.br/api/ocorrencias/";
 
 

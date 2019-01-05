@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { DenunciasApiProvider } from '../../providers/denuncias-api/denuncias-api';
+import { Denuncia } from '../../custom_types/denuncia';
 
 /**
  * Generated class for the NewDenunciaPage page.
@@ -25,7 +27,8 @@ export class NewDenunciaPage {
     public  navCtrl:   NavController, 
     public  navParams: NavParams, 
     private camera:    Camera,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private denunciasApi: DenunciasApiProvider
   ) {}
     
     
@@ -36,6 +39,8 @@ export class NewDenunciaPage {
   
   submitBtnClicked() {
 
+    // como todos os outros dados ja tem valor padrao
+    // basta checar se a foto foi capturada
     if( !this.base64img ) {
       this.toastCtrl.create({
         message: "Por favor capture uma foto.",
@@ -46,6 +51,13 @@ export class NewDenunciaPage {
     }
 
     // envia dados para serviço web
+    let denuncia: Denuncia;
+    denuncia.email = this.user_email;
+    denuncia.motivo_ocorrencia = this.select_motivo;
+    denuncia.imagem.imagem = this.base64img;
+    denuncia.imagem.data_de_envio = Date.now();
+
+    console.log( denuncia );
   }
   
   

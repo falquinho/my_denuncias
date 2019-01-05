@@ -50,7 +50,7 @@
   <!-- requisiçao retornou com sucesso e array tem elemento -->
   <ion-list *ngIf="http_code == 200 && denuncias.length">
     <ion-item *ngFor="let denuncia of denuncias">
-      <!-- componente aqui -->
+      <denuncia-item [denuncia]="denuncia"></denuncia-item>
     </ion-item>
   </ion-list>
 

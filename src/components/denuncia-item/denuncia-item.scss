@@ -1,3 +1,26 @@
 denuncia-item {
+    $item_height: 96px;
 
+    .denuncia-container {
+        display: flex;
+        flex-direction: row;
+        height: $item_height;
+    }
+
+    .info-col {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1rem 0rem;
+        margin-left: 1rem;
+        flex-grow: 1;
+    }
+
+    .photo-circle {
+        width:  $item_height;
+        height: $item_height;
+        background-color: gainsboro;
+        background-position: center;
+        border-radius: 50%;
+    }
 }

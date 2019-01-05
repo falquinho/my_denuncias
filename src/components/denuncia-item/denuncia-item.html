@@ -1,4 +1,11 @@
 <!-- Generated template for the DenunciaItemComponent component -->
-<div>
-  {{text}}
+<div class="denuncia-container">
+  <div class="photo-col">
+    <div class="photo-circle" [style.backgroundImage]="'url('+ denuncia.imagem.imagem +')'"></div>
+  </div>
+  <div class="info-col">
+    <h3>{{denuncia.email}}</h3>
+    <h4>Motivo: {{denuncia.motivo_ocorrencia | titlecase}}</h4>
+    <h4>Data de envio: {{denuncia.imagem.data_de_envio | date:'dd/MM/yy'}}</h4>
+  </div>
 </div>

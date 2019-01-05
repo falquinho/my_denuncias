@@ -34,7 +34,7 @@ import { DenunciasApiProvider } from '../providers/denuncias-api/denuncias-api';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Camera,
-    DenunciasApiProvider
+    DenunciasApiProvider,
   ]
 })
 export class AppModule {}

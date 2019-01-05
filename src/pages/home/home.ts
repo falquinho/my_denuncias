@@ -46,6 +46,7 @@ export class HomePage {
       this.http_code = 500; 
       this.denuncias = undefined;
       console.log( this.http_code );
+      console.log( this.denuncias );
     });
   }
 

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Denuncia }  from '../../custom_types/denuncia';
+import { DateTime } from 'ionic-angular';
 
 /**
  * Generated class for the DenunciaItemComponent component.
@@ -12,11 +14,10 @@ import { Component } from '@angular/core';
 })
 export class DenunciaItemComponent {
 
-  text: string;
+  @Input() denuncia: Denuncia;
 
   constructor() {
     console.log('Hello DenunciaItemComponent Component');
-    this.text = 'Hello World';
   }
 
 }
