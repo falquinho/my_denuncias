@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Platform } from 'ionic-angular';
 import { NewDenunciaPage } from '../new-denuncia/new-denuncia';
 import { DenunciasApiProvider } from '../../providers/denuncias-api/denuncias-api';
 import { Denuncia } from '../../custom_types/denuncia';
@@ -16,19 +16,18 @@ export class HomePage {
 
   constructor(
     public  navCtrl:     NavController, 
-    private denunciaApi: DenunciasApiProvider
-  ) {}
-
-
-  ionViewDidLoad() {
-    // ao abrir tela apenas busca dados se necessario, economiza banda
-    // e faz o app parecer mais rapido
-    if( !this.denuncias )
+    private denunciaApi: DenunciasApiProvider,
+    private platform: Platform
+  ) {
+    this.platform.ready().then( () => {
+      // apenas busca dados se necessario, economiza banda
+      // e faz o app parecer mais rapido
+      if( !this.denuncias )
       this.getDenunciasFromApi();  
-      
+    });
   }
-    
-    
+
+
   getDenunciasFromApi() {
     // ao iniciar busca reseta o estado dos dados
     this.http_code = undefined;
