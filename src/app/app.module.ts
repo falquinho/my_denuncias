@@ -21,7 +21,6 @@ import { HTTP } from '@ionic-native/http';
   imports: [
     BrowserModule,
     HttpClientModule,
-    HTTP,
     IonicModule.forRoot(MyApp, { statusbarPadding: true }),
     ComponentsModule,
     NewDenunciaPageModule
@@ -36,6 +35,7 @@ import { HTTP } from '@ionic-native/http';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Camera,
+    HTTP,
     DenunciasApiProvider,
   ]
 })
