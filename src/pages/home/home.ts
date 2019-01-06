@@ -34,25 +34,23 @@ export class HomePage {
     this.http_code = undefined;
     this.denuncias = undefined;
 
-    this.denunciaApi.getDenuncias().subscribe( response => {
-      this.denuncias = response.body;
+    this.denunciaApi.getDenuncias().then( response => {
+      this.denuncias = response.data;
       this.http_code = response.status;
-      console.log( this.denuncias );
-      console.log( this.http_code );
 
     }, error => {
       // reduzo todos os erros ao 500 ja que para o usuario final nao importa
       // e assim evito conflito com o codigo 0, o estado inicial da variavel
       this.http_code = 500; 
       this.denuncias = undefined;
-      console.log( this.http_code );
-      console.log( this.denuncias );
     });
   }
 
 
   fabClicked() {
-    this.navCtrl.push( NewDenunciaPage );
+    // passo funçao de recuperar dados da API para a NewDenunciaPage, assim ela pode
+    // forçar a atualizaçao dos dados aqui na HomePage em caso de sucesso
+    this.navCtrl.push( NewDenunciaPage, { success_cb: () => { this.getDenunciasFromApi() } });
   }
 
 }

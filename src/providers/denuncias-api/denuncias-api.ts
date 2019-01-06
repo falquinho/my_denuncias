@@ -1,4 +1,5 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HTTP } from '@ionic-native/http';
 import { Injectable } from '@angular/core';
 import { Denuncia }   from '../../custom_types/denuncia';
 
@@ -11,24 +12,24 @@ import { Denuncia }   from '../../custom_types/denuncia';
 @Injectable()
 export class DenunciasApiProvider {
 
-  private get_addr : string = "http://apitesteionic.godocs.com.br/api/ocorrencias/lucas.falcao.nb@gmail.com";
-  // private get_addr : string = "http://apitesteionic.godocs.com.br/api/ocorrencias/dariobennaia@gmail.com/";
-  private post_addr: string = "http://apitesteionic.godocs.com.br/api/ocorrencias/";
+  private get_url : string = "http://apitesteionic.godocs.com.br/api/ocorrencias/lucas.falcao.nb@gmail.com";
+  private post_url: string = "http://apitesteionic.godocs.com.br/api/ocorrencias";
 
 
-  constructor(public http: HttpClient) {
+  constructor(
+    private http: HTTP
+  ) {
     console.log('Hello DenunciasApiProvider Provider');
   }
 
 
   getDenuncias () {
-    // configuro para receber resposta completa - observe: response - pois vou usar codigos http
-    return this.http.get<Denuncia[]>( this.get_addr, { observe: 'response' });
+    return this.http.get( this.get_url, {}, {} );
   }
 
 
   postDenuncia( denuncia: Denuncia ) {
-    //
+    return this.http.post( this.post_url, denuncia, {} );
   }
 
 }

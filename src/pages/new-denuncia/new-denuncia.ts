@@ -18,6 +18,8 @@ import { Denuncia } from '../../custom_types/denuncia';
 })
 export class NewDenunciaPage {
 
+
+  waiting_resp:  boolean = false;
   base64img:     string = undefined;
   select_motivo: string = "ROUBO";
   user_email:    string = "lucas.falcao.nb@gmail.com";
@@ -50,14 +52,49 @@ export class NewDenunciaPage {
       return;
     }
 
-    // envia dados para serviço web
-    let denuncia: Denuncia;
-    denuncia.email = this.user_email;
-    denuncia.motivo_ocorrencia = this.select_motivo;
-    denuncia.imagem.imagem = this.base64img;
-    denuncia.imagem.data_de_envio = Date.now();
+    // constroi objecto Denuncia para envio ao serviço web
+    let denuncia: Denuncia = {
+      email: this.user_email,
+      motivo_ocorrencia: this.select_motivo,
+      imagem: {
+        data_de_envio: Date.now(), 
+        imagem: this.base64img
+      }
+    };
 
     console.log( denuncia );
+
+    // estado da espera, necessario para customizar interface
+    this.waiting_resp = true;
+
+    this.denunciasApi.postDenuncia( denuncia ).then( resp => {
+      // registrado com sucesso, força atualizaçao de dados na HomePage usando
+      // a funçao passada por parametro e entao sai da tela de adição
+      this.waiting_resp = false;
+      this.navParams.get('success_cb')();
+      this.navCtrl.pop();
+
+    }, error => {
+      // erro ao tentar adicionar, notifica usuario
+      console.log( error );
+
+      let msg: string;
+
+      if( error.status === 500 )
+        msg = "Serviço em manutenção, tente novamente mais tarde.";
+      else if( error.status === 400 )
+        msg = "Você não tem autorização para acessar o serviço.";
+      else if( error.status === 404 )
+        msg = "Serviço não encontrado, tente novamente mais tarde.";
+      else
+        msg = "Erro desconhecido. Por favor tente novamente mais tarde.";
+
+      this.waiting_resp = false;
+      this.toastCtrl.create({
+        message: msg,
+        duration: 6000
+      }).present();
+    });
   }
   
   
@@ -78,11 +115,7 @@ export class NewDenunciaPage {
       this.base64img = 'data:image/jpeg;base64,' + data;
 
     }, error => {
-      this.toastCtrl.create({
-        message: "Erro ao capturar imagem.",
-        duration: 3000
-      }).present();
-      
+      console.log( error );
     });
   }
 

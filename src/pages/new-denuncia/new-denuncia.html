@@ -42,7 +42,8 @@
     </ion-item>
 
     <ion-item>
-      <button ion-button large icon-start round block (click)="submitBtnClicked()">
+      <!-- botao para enviar dados. Se ja ha requisiçao em andamento, desativa -->
+      <button ion-button large icon-start round block (click)="submitBtnClicked()" [disabled]="waiting_resp">
         <ion-icon name="cloud-upload"></ion-icon>
         Registrar
       </button>
