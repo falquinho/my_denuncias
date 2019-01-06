@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { Denuncia }  from '../../custom_types/denuncia';
-import { DateTime } from 'ionic-angular';
 
 /**
  * Generated class for the DenunciaItemComponent component.

@@ -1,4 +1,3 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HTTP } from '@ionic-native/http';
 import { Injectable } from '@angular/core';
 import { Denuncia }   from '../../custom_types/denuncia';
