@@ -35,7 +35,9 @@ export class HomePage {
     this.denuncias = undefined;
 
     this.denunciaApi.getDenuncias().then( response => {
-      this.denuncias = response.data;
+      console.log( response );
+
+      this.denuncias = JSON.parse( response.data );
       this.http_code = response.status;
 
     }, error => {

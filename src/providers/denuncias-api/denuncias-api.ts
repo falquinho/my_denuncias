@@ -15,9 +15,7 @@ export class DenunciasApiProvider {
   private post_url: string = "http://apitesteionic.godocs.com.br/api/ocorrencias";
 
 
-  constructor(
-    private http: HTTP
-  ) {
+  constructor( public http: HTTP ) {
     console.log('Hello DenunciasApiProvider Provider');
   }
 
