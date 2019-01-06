@@ -11,6 +11,7 @@ import { HomePage } from '../pages/home/home';
 import { ComponentsModule } from '../components/components.module';
 import { NewDenunciaPageModule } from '../pages/new-denuncia/new-denuncia.module';
 import { DenunciasApiProvider } from '../providers/denuncias-api/denuncias-api';
+import { HTTP } from '@ionic-native/http';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { DenunciasApiProvider } from '../providers/denuncias-api/denuncias-api';
   imports: [
     BrowserModule,
     HttpClientModule,
+    HTTP,
     IonicModule.forRoot(MyApp, { statusbarPadding: true }),
     ComponentsModule,
     NewDenunciaPageModule
