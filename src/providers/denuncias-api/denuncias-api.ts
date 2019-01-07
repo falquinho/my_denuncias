@@ -26,7 +26,7 @@ export class DenunciasApiProvider {
 
 
   postDenuncia( denuncia: Denuncia ) {
-    return this.http.post( this.post_url, denuncia, {} );
+    return this.http.post( this.post_url, denuncia, {'Content-Type': 'application/json'} );
   }
 
 }

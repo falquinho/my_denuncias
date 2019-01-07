@@ -67,6 +67,11 @@ export class NewDenunciaPage {
     // estado da espera, necessario para customizar interface
     this.waiting_resp = true;
 
+    // TODO
+    // salvar foto como arquivo interno
+    // caso sucesso, tenta upload do arquivo
+    // caso erro, notifica usuario
+
     this.denunciasApi.postDenuncia( denuncia ).then( resp => {
       // registrado com sucesso, força atualizaçao de dados na HomePage usando
       // a funçao passada por parametro e entao sai da tela de adição
@@ -81,11 +86,11 @@ export class NewDenunciaPage {
       let msg: string;
 
       if( error.status === 500 )
-        msg = "Serviço em manutenção, tente novamente mais tarde.";
+        msg = "Estamos passando por problemas, tente novamente mais tarde.";
       else if( error.status === 400 )
-        msg = "Você não tem autorização para acessar o serviço.";
+        msg = "Você não tem autorização para acessar o servidor de registro.";
       else if( error.status === 404 )
-        msg = "Serviço não encontrado, tente novamente mais tarde.";
+        msg = "Servidor de registro não encontrado, tente novamente mais tarde.";
       else
         msg = "Erro desconhecido. Por favor tente novamente mais tarde.";
 
