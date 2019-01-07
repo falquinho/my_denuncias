@@ -1,8 +1,16 @@
-import { Base64Image } from './base64-image';
+
+export interface DenunciaPostData {
+    email: string,
+    motivo_ocorrencia: string,
+    file_path: string 
+}
 
 
 export interface Denuncia {
     email: string,
     motivo_ocorrencia: string,
-    imagem: Base64Image
+    imagem: {
+        data_de_envio: number,
+        imagem: string
+    }
 }
